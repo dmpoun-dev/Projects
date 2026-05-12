@@ -41,7 +41,11 @@ while True:
                 print(f"{num}. {task_name}: [X]")
     # Ενημέρωση: Αλλάζει το status μίας διεργασίας.
     elif choice == "3":
-        number = int(input(f"Δώσε τον αριθμό του task από το 1 μέχρι το {len(tasks)}: ")) - 1
+        user_input = input(f"Δώσε τον αριθμό του task από το 1 μέχρι το {len(tasks)}: ")
+        if not user_input.isdigit():
+            print("Πρέπει να δώσεις αριθμό!")
+            continue
+        number = int(user_input) - 1
         if number < 0 or number >= len(tasks):
             print("Λάθος αριθμός!")
             continue
